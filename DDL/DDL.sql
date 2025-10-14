@@ -31,7 +31,7 @@ CREATE TABLE Treinos (
     FOREIGN KEY (ID_Instrutor) REFERENCES Instrutores(ID_Instrutor)
 );
 
-CREATE TABLE Realiza (
+CREATE TABLE Treinos_alunos (
     ID_Aluno INT,
     ID_Treinos INT,
     PRIMARY KEY (ID_Aluno, ID_Treinos),
@@ -45,4 +45,5 @@ CREATE TABLE Escolhe (
     PRIMARY KEY (ID_Aluno, ID_Planos),
     FOREIGN KEY (ID_Aluno) REFERENCES Alunos(ID_Aluno),
     FOREIGN KEY (ID_Planos) REFERENCES Planos(ID_Planos)
+
 );
