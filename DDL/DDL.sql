@@ -1,5 +1,5 @@
 CREATE TABLE Alunos (
-    ID_Aluno INT PRIMARY KEY,
+    ID_Aluno SERIAL PRIMARY KEY,
     Nome_Aluno VARCHAR(100),
     CPF VARCHAR(14) UNIQUE,
     Data_Nascimento DATE,
@@ -12,20 +12,20 @@ CREATE TABLE Alunos (
 );
 
 CREATE TABLE Instrutores (
-    ID_Instrutor INT PRIMARY KEY,
+    ID_Instrutor SERIAL PRIMARY KEY,
     Nome VARCHAR(100),
     CREF VARCHAR(20) UNIQUE
 );
 
 CREATE TABLE Planos (
-    ID_Planos INT PRIMARY KEY,
+    ID_Planos SERIAL PRIMARY KEY,
     Nome_Plano VARCHAR(100),
     Descricao TEXT,
     Valor DECIMAL(10,2)
 );
 
 CREATE TABLE Treinos (
-    ID_Treinos INT PRIMARY KEY,
+    ID_Treinos SERIAL PRIMARY KEY,
     Especificacoes TEXT,
     ID_Instrutor INT,
     FOREIGN KEY (ID_Instrutor) REFERENCES Instrutores(ID_Instrutor)
@@ -47,3 +47,4 @@ CREATE TABLE Escolhe (
     FOREIGN KEY (ID_Planos) REFERENCES Planos(ID_Planos)
 
 );
+
