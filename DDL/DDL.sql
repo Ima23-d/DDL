@@ -8,7 +8,8 @@ CREATE TABLE Alunos (
     Gordura_Corporal DECIMAL(5,2),
     Nivel VARCHAR(20),
     Deficiencia VARCHAR(100),
-    Email VARCHAR(100) NOT NULL
+    Email VARCHAR(100) NOT NULL,
+    Sexo VARHCAR(100) NOT NULL
 );
 
 CREATE TABLE Instrutores (
@@ -46,4 +47,5 @@ CREATE TABLE Escolhe (
     FOREIGN KEY (ID_Aluno) REFERENCES Alunos(ID_Aluno),
     FOREIGN KEY (ID_Planos) REFERENCES Planos(ID_Planos)
 );
+
 
