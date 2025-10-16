@@ -46,3 +46,4 @@ CREATE TABLE Escolhe (
     FOREIGN KEY (ID_Aluno) REFERENCES Alunos(ID_Aluno),
     FOREIGN KEY (ID_Planos) REFERENCES Planos(ID_Planos)
 );
+
