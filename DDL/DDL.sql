@@ -1,7 +1,7 @@
 CREATE TABLE Alunos (
     ID_Aluno SERIAL PRIMARY KEY,
     Nome_Aluno VARCHAR(100) NOT NULL,
-    CPF VARCHAR(14) UNIQUE NOT NULL,
+    CPF VARCHAR(11) UNIQUE NOT NULL,
     Data_Nascimento DATE NOT NULL,
     Idade INT NOT NULL,
     Peso DECIMAL(5,2) NOT NULL,
@@ -40,13 +40,14 @@ CREATE TABLE Treinos_alunos (
     FOREIGN KEY (ID_Treinos) REFERENCES Treinos(ID_Treinos)
 );
 
-CREATE TABLE Escolhe (
-    ID_Aluno INT NOT NULL,
-    ID_Planos INT NOT NULL,
-    PRIMARY KEY (ID_Aluno, ID_Planos),
-    FOREIGN KEY (ID_Aluno) REFERENCES Alunos(ID_Aluno),
-    FOREIGN KEY (ID_Planos) REFERENCES Planos(ID_Planos)
-);
+-- CREATE TABLE Escolhe (
+--     ID_Aluno INT NOT NULL,
+--     ID_Planos INT NOT NULL,
+--     PRIMARY KEY (ID_Aluno, ID_Planos),
+--     FOREIGN KEY (ID_Aluno) REFERENCES Alunos(ID_Aluno),
+--     FOREIGN KEY (ID_Planos) REFERENCES Planos(ID_Planos)
+-- );
+
 
 
 
