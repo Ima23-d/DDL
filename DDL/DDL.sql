@@ -1,58 +1,70 @@
-CREATE TABLE Alunos (
-    ID_Aluno SERIAL PRIMARY KEY,
-    Nome_Aluno VARCHAR(100) NOT NULL,
-    CPF VARCHAR(14) UNIQUE NOT NULL,
-    Data_Nascimento DATE NOT NULL,
-    Idade INT NOT NULL,
-    Peso DECIMAL(5,2) NOT NULL,
-    Gordura_Corporal DECIMAL(5,2),
-    Nivel VARCHAR(20),
-    Deficiencia VARCHAR(100),
-    Email VARCHAR(100) NOT NULL,
-    Sexo VARCHAR(100) NOT NULL,
-    Senha VARCHAR(100) NOT NULL
+-- ===================================
+-- TABELA: ALUNOS
+-- ===================================
+CREATE TABLE alunos (
+    id_aluno SERIAL PRIMARY KEY,
+    nome_aluno VARCHAR(100) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    data_nascimento DATE NOT NULL,
+    idade INT NOT NULL,
+    peso DECIMAL(5,2) NOT NULL,
+    gordura_corporal DECIMAL(5,2),
+    nivel VARCHAR(20),
+    deficiencia VARCHAR(100),
+    email VARCHAR(100) NOT NULL,
+    sexo VARCHAR(100) NOT NULL,
+    senha VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Instrutores (
-    ID_Instrutor SERIAL PRIMARY KEY,
-    Nome VARCHAR(100) NOT NULL,
-    CREF VARCHAR(20) UNIQUE NOT NULL,
-    Email VARCHAR(100) NOT NULL UNIQUE,
-    Senha VARCHAR(100) NOT NULL
+-- ===================================
+-- TABELA: INSTRUTORES
+-- ===================================
+CREATE TABLE instrutores (
+    id_instrutor SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cref VARCHAR(20) UNIQUE NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Planos (
-    ID_Planos SERIAL PRIMARY KEY,
-    Nome_Plano VARCHAR(100) NOT NULL,
-    Descricao TEXT,
-    Valor DECIMAL(10,2) NOT NULL
+-- ===================================
+-- TABELA: PLANOS
+-- ===================================
+CREATE TABLE planos (
+    id_planos SERIAL PRIMARY KEY,
+    nome_plano VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    valor DECIMAL(10,2) NOT NULL
 );
 
-CREATE TABLE Treinos (
-    ID_Treinos SERIAL PRIMARY KEY,
-    Especificacoes TEXT NOT NULL,
-    ID_Instrutor INT NOT NULL,
-    FOREIGN KEY (ID_Instrutor) REFERENCES Instrutores(ID_Instrutor)
+-- ===================================
+-- TABELA: TREINOS
+-- ===================================
+CREATE TABLE treinos (
+    id_treinos SERIAL PRIMARY KEY,
+    especificacoes TEXT NOT NULL,
+    id_instrutor INT NOT NULL,
+    FOREIGN KEY (id_instrutor) REFERENCES instrutores(id_instrutor)
 );
 
-CREATE TABLE Treinos_alunos (
-    ID_Aluno INT NOT NULL,
-    ID_Treinos INT NOT NULL,
-    PRIMARY KEY (ID_Aluno, ID_Treinos),
-    FOREIGN KEY (ID_Aluno) REFERENCES Alunos(ID_Aluno),
-    FOREIGN KEY (ID_Treinos) REFERENCES Treinos(ID_Treinos)
+-- ===================================
+-- TABELA: TREINOS_ALUNOS
+-- ===================================
+CREATE TABLE treinos_alunos (
+    id_aluno INT NOT NULL,
+    id_treinos INT NOT NULL,
+    PRIMARY KEY (id_aluno, id_treinos),
+    FOREIGN KEY (id_aluno) REFERENCES alunos(id_aluno),
+    FOREIGN KEY (id_treinos) REFERENCES treinos(id_treinos)
 );
 
-CREATE TABLE Escolhe (
-    ID_Aluno INT NOT NULL,
-    ID_Planos INT NOT NULL,
-    PRIMARY KEY (ID_Aluno, ID_Planos),
-    FOREIGN KEY (ID_Aluno) REFERENCES Alunos(ID_Aluno),
-    FOREIGN KEY (ID_Planos) REFERENCES Planos(ID_Planos)
+-- ===================================
+-- TABELA: ESCOLHE
+-- ===================================
+CREATE TABLE escolhe (
+    id_aluno INT NOT NULL,
+    id_planos INT NOT NULL,
+    PRIMARY KEY (id_aluno, id_planos),
+    FOREIGN KEY (id_aluno) REFERENCES alunos(id_aluno),
+    FOREIGN KEY (id_planos) REFERENCES planos(id_planos)
 );
-
-
-
-
-
-
