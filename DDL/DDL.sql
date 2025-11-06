@@ -9,7 +9,7 @@ CREATE TABLE Alunos (
     Nivel VARCHAR(20),
     Deficiencia VARCHAR(100),
     Email VARCHAR(100) NOT NULL,
-    Sexo VARCHAR(100) NOT NULL
+    Sexo VARCHAR(100) NOT NULL,
     Senha VARCHAR(100) NOT NULL
 );
 
@@ -50,6 +50,7 @@ CREATE TABLE Escolhe (
     FOREIGN KEY (ID_Aluno) REFERENCES Alunos(ID_Aluno),
     FOREIGN KEY (ID_Planos) REFERENCES Planos(ID_Planos)
 );
+
 
 
 
