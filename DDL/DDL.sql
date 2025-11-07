@@ -5,7 +5,6 @@ CREATE TABLE alunos (
     id_aluno SERIAL PRIMARY KEY,
     nome_aluno VARCHAR(100) NOT NULL,
     cpf VARCHAR(14) UNIQUE NOT NULL,
-    data_nascimento DATE NOT NULL,
     idade INT NOT NULL,
     peso DECIMAL(5,2) NOT NULL,
     gordura_corporal DECIMAL(5,2),
@@ -68,3 +67,4 @@ CREATE TABLE escolhe (
     FOREIGN KEY (id_aluno) REFERENCES alunos(id_aluno),
     FOREIGN KEY (id_planos) REFERENCES planos(id_planos)
 );
+
